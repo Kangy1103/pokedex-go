@@ -1,5 +1,20 @@
 package main
 
+import (
+	"time"
+
+	"github.com/Kangy1103/pokedex-go/internal/pokeapi"
+)
+
+const (
+	timeout       time.Duration = 5 * time.Second
+	cacheInterval time.Duration = 30 * time.Second
+)
+
 func main() {
-	startRepl()
+	c := &config{
+		commands: getCommands(),
+		client:   pokeapi.NewClient(timeout, cacheInterval),
+	}
+	startRepl(c)
 }
