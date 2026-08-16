@@ -15,6 +15,7 @@ func main() {
 	c := &config{
 		commands: getCommands(),
 		client:   pokeapi.NewClient(timeout, cacheInterval),
+		pokedex:  make(map[string]pokeapi.PokemonData),
 	}
 	startRepl(c)
 }
