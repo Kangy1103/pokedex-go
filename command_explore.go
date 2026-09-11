@@ -7,7 +7,7 @@ import (
 
 func commandExplore(c *config, args []string) error {
 	if len(args) == 0 {
-		return errors.New("Please provide an area to explore")
+		return errors.New("please provide an area to explore")
 	}
 
 	location := args[0]
