@@ -16,14 +16,16 @@ func commandInspect(c *config, args []string) error {
 		fmt.Printf("Name: %s\n", poke.Name)
 		fmt.Printf("Height: %d\n", poke.Height)
 		fmt.Printf("Weight: %d\n", poke.Weight)
-		fmt.Printf("Stats:")
+		fmt.Printf("Stats:\n")
 		for _, stat := range poke.Stats {
-			fmt.Printf("	-%s: %d\n", stat.Stat.Name, stat.BaseStat)
+			fmt.Printf("  -%s: %d\n", stat.Stat.Name, stat.BaseStat)
 		}
 		fmt.Printf("Types:")
 		for _, pokeType := range poke.Types {
-			fmt.Printf("	-%s", pokeType.Type.Name)
+			fmt.Printf("  -%s\n", pokeType.Type.Name)
 		}
+	} else {
+		fmt.Printf("%s not found in Pokedex\n", pokemon)
 	}
 
 	return nil
